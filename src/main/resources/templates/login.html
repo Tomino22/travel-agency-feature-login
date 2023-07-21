@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <style>
+        body{
+            background-color: white;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        form{
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 50px;
+            background-color: rgb(200, 225, 248);
+            position: absolute;
+            left: 40%;
+            top: 20%;
+
+        }
+        input{
+            border: 3px solid rgba(0, 0, 255, 0.43);
+            margin: 5px;
+            border-radius: 10px;
+            width: 200px;
+            height: 30px;
+            background-color: aliceblue;
+        }
+        button{
+            width: 210px;
+            height: 35px;
+            border: 3px solid red;
+            border-radius: 10px;
+            margin-left: 4px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        img{
+            width: 250px;
+
+
+        }
+        .btn {
+            border: 3px solid blue;
+            text-decoration: none;
+            padding: 4px;
+            width: 100px;
+            text-align: center;
+            background-color:rgba(0, 0, 255, 0.086);
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            color:  black;
+
+        }
+
+    </style>
+</head>
+<body>
+<a class="btn" href="/register">Registration</a>
+<img src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center" alt="">
+<form th:action="@{/login}" th:object="${login}" method="post">
+
+
+    <div th:if="${message}" th:text="${message}" style="color: red"></div>
+    <div>
+
+        <input type="text"  placeholder="Your Email" th:field="*{email}"/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    </div>
+    <div>
+
+        <input type="password"  placeholder="Your Password" th:field="*{password}"/>
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+</body>
+</html>

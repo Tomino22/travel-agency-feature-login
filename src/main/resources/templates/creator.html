@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Creator</title>
+    <style>
+        body {
+            font-family: Georgia, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h1>Vacation creator</h1>
+<form th:action="@{/admin/vacation/create}" th:object="${newVacation}" method="post">
+    <div>
+        <label for="firstName">Vacation name:</label>
+        <input type="text" id="firstName" placeholder="Location name" th:field="*{name}" required/>
+    </div>
+    <div>
+        <label for="lastName">Description:</label>
+        <input type="text" id="lastName" placeholder="Describe this place" th:field="*{description}" required/>
+    </div>
+    <div>
+        <label for="email">Room-type:</label>
+        <input type="text" id="email" placeholder="Type of accommodation" th:field="*{roomType}" required/>
+    </div>
+    <div>
+        <label for="password">Destination:</label>
+        <input type="text" id="password" placeholder="Type of destination" th:field="*{destination}" required/>
+    </div>
+
+
+    <div>
+        <label>Country:</label>
+        <select th:field="*{countryId}">
+            <option value="" selected>None</option>
+            <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>
+        </select>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

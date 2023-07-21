@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  error:
+    path: /error
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://aws.connect.psdb.cloud/travel-agency-database?sslMode=VERIFY_IDENTITY
+    username: 7a5uq3gxn4lbr2kpv76x
+    password: pscale_pw_CO5kSzeLjf7Dd7aAf2LMyWpohG6Z4LjkQjfnjSu1gvD
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  devtools:
+    livereload:
+      enabled: true

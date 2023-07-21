@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Delete Vacation</h1>
+<p>Are you sure you want to delete this vacation?</p>
+
+<!--"@{/admin/vacation/{vacationId}/delete(vacationId=${vacation.id})}"-->
+<form th:action="@{/admin/vacation/{vacationId}/delete(vacationId=${deleteVacation.id})}" th:object="${deleteVacation}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+        <button type="submit">Submit</button>
+        <a href="/vacation">Cancel</a>
+    </div>
+
+
+
+</form>
+
+</body>
+</html>

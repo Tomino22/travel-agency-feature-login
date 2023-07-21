@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Vacations</title>
+    <style>
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border: 2px solid black;
+        }
+        tr:hover {background-color: #D6EEEE;}
+
+        body {
+            font-family: Georgia, sans-serif;
+        }
+        h1, h2 {
+            color: indianred;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>All Vacations</h1>
+
+<div>
+
+        <p><a href="/dashboard">Dashboard</a></p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Room Type</th>
+        <th>Destination</th>
+        <th>Available terms</th>
+
+        <!-- Add more table headers for additional attributes -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vacation : ${vacations}">
+        <td th:text="${vacation.name}"></td>
+        <td th:text="${vacation.description}"></td>
+        <td th:text="${vacation.roomType}"></td>
+        <td th:text="${vacation.destination}"></td>
+
+
+        <td>
+
+            <a th:href="@{/vacation/{vacationId}/term(vacationId=${vacation.id})}">Terms</a>
+
+        </td>
+
+        <!-- Add more table cells for additional attributes -->
+    </tr>
+    </tbody>
+</table>
+
+
+<h2>Vacations Alphabetical</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Room Type</th>
+        <th>Destination</th>
+        <th>Country</th>
+
+        <!-- Add more table headers for additional attributes -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="alphabetical : ${alpha}">
+        <td th:text="${alphabetical.name}"></td>
+        <td th:text="${alphabetical.description}"></td>
+        <td th:text="${alphabetical.roomType}"></td>
+        <td th:text="${alphabetical.destination}"></td>
+        <td th:text="${alphabetical?.countryEntity?.name}"></td>
+
+        <!-- Add more table cells for additional attributes -->
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

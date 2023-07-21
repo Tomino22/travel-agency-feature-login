@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Admin Controller Page</h1>
+
+<!--<p><form method="POST" th:action="@{/dashboard/search}" th:object="${search}">-->
+
+<!--  <div class="inpt">-->
+<!--    <p>Search vacation</p>-->
+<!--    <input type="text" th:field="*{name}" required />-->
+<!--    <button type="submit" hidden="hidden">Search</button>-->
+<!--  </div>-->
+
+
+<!--</form></p>-->
+
+<p><a th:href="@{/admin/vacation/create}">Create vacation</a></p>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Room Type</th>
+    <th>Destination</th>
+    <th>Action</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="vacation : ${vacations}">
+    <td th:text="${vacation.name}"></td>
+    <td th:text="${vacation.description}"></td>
+    <td th:text="${vacation.roomType}"></td>
+    <td th:text="${vacation.destination}"></td>
+
+
+    <td>
+      <a th:href="@{/admin/vacation/{vacationId}/update(vacationId=${vacation.id})}">Update</a>
+
+      <a th:href="@{/admin/vacation/{vacationId}/delete(vacationId=${vacation.id})}">Delete</a>
+
+      <a th:href="@{/vacation/{vacationId}/term(vacationId=${vacation.id})}">Terms</a>
+
+    </td>
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Term</title>
+
+    <style>
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border: 2px solid black;
+        }
+        tr:hover {background-color: #D6EEEE;}
+
+        body {
+            font-family: Georgia, sans-serif;
+        }
+        h1, h2 {
+            color: indianred;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Term page</h1>
+<table>
+    <thead>
+
+
+    <tr>
+        <th>Check In</th>
+        <th>Check Out</th>
+        <th>Price</th>
+
+
+
+        <!-- Add more table headers for additional attributes -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="term : ${termList}">
+        <td th:text="${term.checkIn}"></td>
+        <td th:text="${term.checkOut}"></td>
+        <td th:text="${term.price}"></td>
+
+
+
+        <td>
+
+            <a th:href="@{/vacation/{vacationId}/{termId}/book(termId=${term.id}, vacationId=${term.getVacationEntity().getId()})}">Book</a>
+
+
+        </td>
+
+        <!-- Add more table cells for additional attributes -->
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

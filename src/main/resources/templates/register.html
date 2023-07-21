@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-color: white;
+            padding: 0%;
+            margin: 0%;
+        }
+
+
+        form{
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 50px;
+            background-color: rgb(200, 225, 248);
+            position: absolute;
+            left: 40%;
+            top: 20%;
+
+        }
+        input{
+            border: 3px solid rgba(0, 0, 255, 0.43);
+            margin: 5px;
+            border-radius: 10px;
+            width: 200px;
+            height: 30px;
+            background-color: aliceblue;
+        }
+        button{
+            width: 210px;
+            height: 35px;
+            border: 3px solid red;
+            border-radius: 10px;
+            margin-left: 4px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        img{
+            width: 250px;
+
+
+        }
+        .btn {
+            border: 3px solid blue;
+            text-decoration: none;
+            padding: 4px;
+            width: 100px;
+            text-align: center;
+            background-color:rgba(0, 0, 255, 0.086);
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            color:  black;
+
+        }
+        #ahaa{
+            font-weight: bold;
+            text-decoration: underline;
+            margin: 14px;
+        }
+
+
+    </style>
+</head>
+<body>
+<a class="btn" href="/login">Login</a>
+<img src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center" alt="">
+<form th:action="@{/register}" th:object="${user}" method="post">
+    <div>
+        <input type="text" id="firstName" placeholder="Your first name" th:field="*{firstName}" required/>
+    </div>
+    <div>
+        <input type="text" id="lastName" placeholder="Your last name" th:field="*{lastName}" required/>
+    </div>
+    <div>
+        <input type="email" id="email" placeholder="Your email" th:field="*{email}" required/>
+    </div>
+    <div>
+        <input type="password" id="password" placeholder="Your password" th:field="*{password}" required/>
+    </div>
+    <button type="submit">Submit</button>
+    <br>
+    <a id="ahaa" th:href="@{/login}" >Already have an account?</a>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Vacations</title>
+  <style>
+    th {
+      border: 1px solid black;
+    }
+
+    td {
+      border: 1px solid black;
+    }
+
+    table {
+      border: 2px solid black;
+    }
+
+  </style>
+</head>
+
+<body>
+<h1>Vacations By Country</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Room Type</th>
+    <th>Destination</th>
+
+    <!-- Add more table headers for additional attributes -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="vacation1 : ${vacationsCountry}">
+    <td th:text="${vacation1.name}"></td>
+    <td th:text="${vacation1.description}"></td>
+    <td th:text="${vacation1.roomType}"></td>
+    <td th:text="${vacation1.destination}"></td>
+
+    <!-- Add more table cells for additional attributes -->
+  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

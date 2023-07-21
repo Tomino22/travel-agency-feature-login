@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>My Webpage with Sidebars</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        header {
+            height: 100px;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+
+        }
+
+        #mid {
+            display: flex;
+            height: 700px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        nav {
+            position: relative;
+            height: 30px;
+            padding: 5px;
+            background-color: blue;
+            border-radius: 20px;;
+            background-image: url("https://moderndiplomacy.eu/wp-content/uploads/2022/01/fish-ocean.jpg");
+
+
+        }
+
+        .userbtns a {
+            display: inline;
+            color: white;
+            text-decoration: none;
+            padding: 3px;
+        }
+
+        .userbtns {
+            position: absolute;
+            right: 3%;
+            top: 30%;
+        }
+
+        .btn {
+            border: 3px double white;
+            margin: 3px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .btn:hover{
+            border-color: yellow;
+            color: yellow;
+        }
+
+        main {
+            width: 100%;
+        }
+
+
+        aside {
+            width: 300px;
+            background-color: white;
+        }
+
+
+        footer {
+            margin: 0;
+            height: 150px;
+            background-color: rgb(61, 58, 58);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+        }
+
+        form {
+            margin-top: 2%;;
+            border-radius: 20px;
+            background-color: dodgerblue;
+            text-align: center;
+            padding: 15px;
+            background-image: url('https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892112/EducationHub/photos/greek-coast-south-aegean.jpg');
+            background-size: 100%;
+            background-position: center;
+            min-height: 10vh;
+
+        }
+
+        form input {
+            border-radius: 10px;
+            border: none;
+            height: 35px;
+            width: 50%;
+            font-size: 15px;
+        }
+
+        form p {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: cursive;
+            color: white;
+        }
+        m {
+            font-family:"Lucida Handwriting";
+        }
+
+        .m{
+            color: deepskyblue;
+        }
+
+        .f {
+            color: #ec7e91;
+        }
+
+        .sbtn{
+            border: 1px solid grey;
+            width: 150px;
+            height: 25px;
+            text-align: center;
+            padding-top: 5px;
+            margin: 4px;
+            background-color: lightgrey;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        td{
+            border: 1px solid black;
+        }
+        .tbl{
+            border: 6px solid darkred;
+            width: 300px;
+            height: 150px;
+            margin: 5px;
+            border-radius: 30px;
+            padding: 10px;
+            background-color: sandybrown;
+            position: relative;
+            font-size: 18px;
+            box-sizing: border-box;
+
+        }
+
+        .pName{
+            position: absolute;
+            top: 0%;
+            left: 10%;
+        }
+
+        .pDescr{
+            position: absolute;
+            top: 60%;
+            left: 10%;
+        }
+
+        .pRoom{
+            position: absolute;
+            top: 30%;
+            left: 10%;
+        }
+
+        .pDestin{
+            position: absolute;
+            top: 0%;
+            right: 10%;
+        }
+
+        #contain {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+
+    </style>
+
+</head>
+        <body>
+          <header>
+               <h1><m class="m">T</m>ravel is <m class="f">J</m>ourney</h1>
+    <img class="logo" src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center" alt="">
+</header>
+
+<nav>
+
+    <div class="userbtns">
+        <a class="btn" href="/admin/dashboard">Admin</a>
+        <a class="btn" href="/logout">Logout</a>
+    </div>
+
+</nav>
+<div id="mid">
+    <!-- Left Sidebar -->
+    <aside>
+        <p class="sbtn">EGYPT</p>
+        <p class="sbtn">CROATIA</p>
+        <p class="sbtn">SLOVAKIA</p>
+        <p class="sbtn">GREECE</p>
+        <p class="sbtn">USA</p>
+        <p class="sbtn">ITALY</p>
+        <p class="sbtn">SPAIN</p>
+        <p class="sbtn">NORWAY</p>
+
+    </aside>
+
+
+
+    <main>
+
+        <form method="POST" th:action="@{/dashboard/search}" th:object="${search}">
+            <div class="inpt">
+                <p>Find Your Vacation</p>
+                <input type="text" placeholder="Destination/Hotel/Country" th:field="*{name}" required/>
+                <button type="submit" hidden="hidden">Search</button>
+            </div>
+
+        </form>
+
+
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Name</th>-->
+<!--                <th>Description</th>-->
+<!--                <th>Room Type</th>-->
+<!--                <th>Destination</th>-->
+<!--                <th>Available terms</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="vacation : ${popular}">-->
+
+<!--                <td th:text="${vacation.name}"></td>-->
+<!--                <td th:text="${vacation.description}"></td>-->
+<!--                <td th:text="${vacation.roomType}"></td>-->
+<!--                <td th:text="${vacation.destination}"></td>-->
+<!--                <td>-->
+<!--                    <a th:href="@{/vacation/{vacationId}/term(vacationId=${vacation.id})}">Terms</a>-->
+<!--                </td>-->
+
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+
+        <div id="contain">
+        <div class="tbl" th:each="salam : ${popular}">
+            <p class="pName" th:text="${salam.name}"></p>
+            <p class="pDescr" th:text="${salam.description}"></p>
+            <p class="pRoom" th:text="${salam.roomType}"></p>
+            <p class="pDestin" th:text="${salam.destination}"></p>
+        </div>
+        </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside>
+
+    </aside>
+</div>
+<footer>
+
+</footer>
+</body>
+</html>
