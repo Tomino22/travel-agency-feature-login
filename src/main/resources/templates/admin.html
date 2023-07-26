@@ -30,7 +30,7 @@
     <th>Room Type</th>
     <th>Destination</th>
     <th>Action</th>
-
+    <th>Country</th>
 
   </tr>
   </thead>
@@ -40,6 +40,7 @@
     <td th:text="${vacation.description}"></td>
     <td th:text="${vacation.roomType}"></td>
     <td th:text="${vacation.destination}"></td>
+      <td th:text="${vacation.countryEntity.name}"></td>
 
 
     <td>

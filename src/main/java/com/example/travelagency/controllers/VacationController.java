@@ -1,10 +1,7 @@
 package com.example.travelagency.controllers;
 
 import com.example.travelagency.requests.VacationRequest;
-import com.example.travelagency.services.BookingService;
-import com.example.travelagency.services.TermService;
-import com.example.travelagency.services.UserService;
-import com.example.travelagency.services.VacationService;
+import com.example.travelagency.services.*;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -21,9 +18,7 @@ public class VacationController {
 
     private final VacationService vacationService;
     private final TermService termService;
-
     private final UserService userService;
-
     private final BookingService bookingService;
 
     public VacationController(VacationService vacationService, TermService termService, UserService userService, BookingService bookingService) {
@@ -32,7 +27,6 @@ public class VacationController {
         this.userService = userService;
         this.bookingService = bookingService;
     }
-
 
     @GetMapping("/vacation")
     public String getAll(Model model) {
@@ -65,9 +59,7 @@ public class VacationController {
             Model model,
             Authentication authentication,
             @PathVariable("vacationId") Long vacationId,
-            @PathVariable("termId") Long termId
-    ) {
-
+            @PathVariable("termId") Long termId) {
         try {
             var user = userService.findByEmail(((UserDetails) authentication.getPrincipal()).getUsername());
             var book = bookingService.book(termId, user.getId());
@@ -78,7 +70,6 @@ public class VacationController {
         }
         return "term";
     }
-
 
 
 }

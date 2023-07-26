@@ -21,4 +21,7 @@ public class TermService {
         return termRepository.findAllByVacationEntity_Id(vacationId);
 
     }
+    public List<TermEntity> getAllUserTerms(Long id){
+        return termRepository.findAllById(id);
+    }
 }

@@ -34,13 +34,6 @@ public class UserEntity {
     @Column(name = "admin")
     private boolean isAdmin = false;
 
-//    @Column(name = "address", nullable = false)
-//    private String address;
-//
-//    @Column(name = "phone_number", nullable = false)
-//    private int phoneNumber;
-
-// vazba na booking ma byt tu?
 
 
 }

@@ -16,6 +16,7 @@ public interface CountryRepository extends JpaRepository<CountryEntity, Long> {
    List<CountryEntity> findAllByName(String name);
 
    Set<CountryEntity> findByOrderByNameAsc();
+   List<CountryEntity> findAll();
 
 
 

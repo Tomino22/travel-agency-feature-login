@@ -2,9 +2,7 @@ package com.example.travelagency.repositories;
 
 import com.example.travelagency.entities.CountryEntity;
 import com.example.travelagency.entities.VacationEntity;
-import jakarta.validation.constraints.Null;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +15,7 @@ public interface VacationRepository extends JpaRepository<VacationEntity, Long> 
     List<VacationEntity> findAllByCountryEntity(CountryEntity countryEntity);
 
     List<VacationEntity> findByNameContainingIgnoreCase(String searchText);
+    List<VacationEntity> findByCountryEntityName(String countryName);
 
 
 }

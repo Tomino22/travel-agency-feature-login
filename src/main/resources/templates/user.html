@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>My Webpage with Sidebars</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    header {
+      height: 100px;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+
+    #mid {
+      display: flex;
+      height: 700px
+    }
+
+    #mid p {
+      margin: 0px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    nav {
+      position: relative;
+      height: 30px;
+      padding: 5px;
+      background-color: blue;
+      border-radius: 20px;;
+      background-image: url("https://moderndiplomacy.eu/wp-content/uploads/2022/01/fish-ocean.jpg");
+    }
+
+    .userbtns a {
+      display: inline;
+      color: white;
+      text-decoration: none;
+      padding: 3px;
+    }
+
+    .userbtns {
+      position: absolute;
+      right: 3%;
+      top: 30%;
+    }
+
+    .btn {
+      border: 3px double white;
+      margin: 3px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .btn:hover {
+      border-color: yellow;
+      color: yellow;
+    }
+
+    main {
+      width: 100%;
+    }
+
+
+    aside {
+      width: 300px;
+      background-color white;
+    }
+
+
+    footer {
+      margin: 0;
+      height: 150px;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    footer div {
+      padding-top: 25px;
+      padding-bottom: 10px;
+      width: 33%;
+      display: inline-block;
+      text-align: center;
+
+
+    }
+
+    footer p {
+      margin: 0;
+      color: white;
+    }
+
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+    }
+
+    form {
+      margin-top: 2%;;
+      border-radius: 20px;
+      background-color: dodgerblue;
+      text-align: center;
+      padding: 15px;
+      background-image: url('https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892112/EducationHub/photos/greek-coast-south-aegean.jpg');
+      background-size: 100%;
+      background-position: center;
+      min-height: 10vh;
+    }
+
+    form input {
+      border-radius: 10px;
+      border: none;
+      height: 35px;
+      width: 50%;
+      font-size: 15px;
+    }
+
+    form p {
+      font-weight: bold;
+      font-size: 20px;
+      font-family: cursive;
+      color: white;
+    }
+
+    m {
+      font-family: "Lucida Handwriting";
+    }
+
+    .m {
+      color: deepskyblue;
+    }
+
+    .f {
+      color: #ec7e91;
+    }
+
+    .sbtn {
+      display: block;
+      border: 1px solid grey;
+      width: 120px;
+      text-align: center;
+      padding: 5px;
+      margin: 5px;
+      background-color: lightgrey;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      text-decoration: none;
+    }
+
+    td {
+      border: 1px solid black;
+    }
+
+    .tbl {
+      border: 5px solid darkred;
+      width: 300px;
+      height: 150px;
+      margin: 5px;
+      border-radius: 30px;
+      padding: 10px;
+      background-color: honeydew;
+      position: relative;
+      font-size: 18px;
+      box-sizing: border-box;
+
+    }
+
+    .pName {
+      position: absolute;
+      top: 0%;
+      left: 10%;
+    }
+
+    .pDescr {
+      position: absolute;
+      top: 60%;
+      left: 10%;
+    }
+
+    .pRoom {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+    }
+
+    .pDestin {
+      position: absolute;
+      top: 0%;
+      right: 10%;
+    }
+
+    #contain {
+      display: flex;
+      flex-wrap: wrap;
+      color: black;
+      font-weight: bold;
+    }
+
+    .btn2 {
+      border: 2px double white;
+      background-color: darkblue;
+      color: white;
+      padding: 8px;
+      position: absolute;
+      top: 70%;
+      right: 2%;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      text-decoration: none;
+    }
+    main span{
+      display: inline-block;
+    }
+
+  </style>
+
+</head>
+<body>
+<header>
+  <h1>
+    <m class="m">T</m>ravel is
+    <m class="f">J</m>ourney
+  </h1>
+  <img class="logo"
+       src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center"
+       alt="logo">
+</header>
+
+<nav>
+  <div class="userbtns">
+    <a class="btn" href="/admin/dashboard">Admin</a>
+    <a class="btn" href="/logout">Logout</a>
+  </div>
+
+</nav>
+<div id="mid">
+  <!-- Left Sidebar -->
+  <aside>
+
+  </aside>
+
+  <main>
+
+    <h1>Welcome, <span th:text="${user.firstName}"></span>!</h1>
+
+    <h2>Your Books:</h2>
+    <span>
+      <li th:each="book : ${book}">
+        <span th:text="${book.createDate}">A</span>
+      </li>
+    </span>
+<!--    <span>-->
+<!--      <li th:each="vacat : ${vacation}">-->
+<!--        <span th:text="${vacat.name}">A</span>-->
+<!--      </li>-->
+<!--    </span>-->
+    <span>
+      <li th:each="termEntity : ${termEntities}">
+        <span th:text="${termEntity.price}">B</span> -
+        <span th:text="${termEntity.checkIn}">B</span> -
+        <span th:text="${termEntity.checkOut}">B</span>
+      </li>
+      </span>
+    </ul>
+
+<!--    <h2>Your Vacations:</h2>-->
+<!--    <ul>-->
+<!--      <li th:each="vacation : ${vacation}">-->
+<!--        <span th:text="${vacation}"></span>-->
+<!--      </li>-->
+<!--    </ul>-->
+
+
+<!--    <div id="contain">-->
+<!--      <div class="tbl" th:each="vacations : ${popular}">-->
+<!--        <p class="pName" th:text="${vacations.name}"></p>-->
+<!--        <p class="pDescr" th:text="${vacations.description}"></p>-->
+<!--        <p class="pRoom" th:text="${vacations.roomType}"></p>-->
+<!--        <p class="pDestin" th:text="${vacations.destination}"></p>-->
+<!--        <a class="btn2" th:href="@{/vacation/{vacationId}/term(vacationId=${vacations.id})}">Terms</a>-->
+<!--      </div>-->
+<!--    </div>-->
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside>
+
+  </aside>
+</div>
+<footer>
+  <div>
+    <p>Created by</p>
+    <p>Tomino and Janka</p>
+
+  </div>
+  <div>
+    <p>Created in 2023</p>
+  </div>
+  <div>
+    <p>SDA Academy</p>
+  </div>
+</footer>
+</body>
+</html>

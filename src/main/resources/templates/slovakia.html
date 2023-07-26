@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
@@ -21,16 +22,16 @@
 
         #mid {
             display: flex;
-            height: 700px
+            height: 700px;
         }
 
-        #mid p {
-            margin: 0px;
-        }
 
         h1 {
             margin: 0;
-            font-size: 30px;
+            font-size: 50px;
+        }
+        h2{
+            text-align: center;
         }
 
         nav {
@@ -61,8 +62,7 @@
             border-top-right-radius: 10px;
             border-bottom-left-radius: 10px;
         }
-
-        .btn:hover {
+        .btn:hover{
             border-color: yellow;
             color: yellow;
         }
@@ -74,29 +74,18 @@
 
         aside {
             width: 300px;
-            background-color white;
+            background-color: white;
         }
 
 
         footer {
             margin: 0;
             height: 150px;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        footer div {
-            padding-top: 25px;
-            padding-bottom: 10px;
-            width: 33%;
-            display: inline-block;
-            text-align: center;
-
-
+            background-color: rgb(61, 58, 58);
         }
 
         footer p {
             margin: 0;
-            color: white;
         }
 
         .logo {
@@ -132,12 +121,11 @@
             font-family: cursive;
             color: white;
         }
-
         m {
-            font-family: "Lucida Handwriting";
+            font-family:"Lucida Handwriting";
         }
 
-        .m {
+        .m{
             color: deepskyblue;
         }
 
@@ -145,7 +133,7 @@
             color: #ec7e91;
         }
 
-        .sbtn {
+        .sbtn{
             display: block;
             border: 1px solid grey;
             width: 120px;
@@ -156,13 +144,14 @@
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             text-decoration: none;
+            font-weight: bold;
+            color: darkblue;
         }
 
-        td {
+        td{
             border: 1px solid black;
         }
-
-        .tbl {
+        .tbl{
             border: 5px solid darkred;
             width: 300px;
             height: 150px;
@@ -173,28 +162,27 @@
             position: relative;
             font-size: 18px;
             box-sizing: border-box;
-
         }
 
-        .pName {
+        .pName{
             position: absolute;
             top: 0%;
             left: 10%;
         }
 
-        .pDescr {
+        .pDescr{
             position: absolute;
             top: 60%;
             left: 10%;
         }
 
-        .pRoom {
+        .pRoom{
             position: absolute;
             top: 30%;
             left: 10%;
         }
 
-        .pDestin {
+        .pDestin{
             position: absolute;
             top: 0%;
             right: 10%;
@@ -206,8 +194,7 @@
             color: black;
             font-weight: bold;
         }
-
-        .btn2 {
+        .btn2{
             border: 2px double white;
             background-color: darkblue;
             color: white;
@@ -225,23 +212,18 @@
 </head>
 <body>
 <header>
-    <h1>
-        <m class="m">T</m>ravel is
-        <m class="f">J</m>ourney
-    </h1>
-    <img class="logo"
-         src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center"
-         alt="logo">
+    <h1><m class="m">T</m>ravel is <m class="f">J</m>ourney</h1>
+    <img class="logo" src="https://cdn.dribbble.com/users/8467716/screenshots/16151265/media/8c1da4a105a28d79fd914fcf1a969b6c.jpg?resize=1000x750&vertical=center" alt="logo">
 </header>
 
 <nav>
-    <a th:href="@{/user/{userId}/book(userId=${user.id})}">User</a>
+
     <div class="userbtns">
         <a class="btn" href="/admin/dashboard">Admin</a>
         <a class="btn" href="/logout">Logout</a>
     </div>
 
-</nav> 
+</nav>
 <div id="mid">
     <!-- Left Sidebar -->
     <aside>
@@ -265,40 +247,14 @@
             </div>
 
         </form>
-
-
-        <!--        <table>-->
-        <!--            <thead>-->
-        <!--            <tr>-->
-        <!--                <th>Name</th>-->
-        <!--                <th>Description</th>-->
-        <!--                <th>Room Type</th>-->
-        <!--                <th>Destination</th>-->
-        <!--                <th>Available terms</th>-->
-        <!--            </tr>-->
-        <!--            </thead>-->
-        <!--            <tbody>-->
-        <!--            <tr th:each="vacation : ${popular}">-->
-
-        <!--                <td th:text="${vacation.name}"></td>-->
-        <!--                <td th:text="${vacation.description}"></td>-->
-        <!--                <td th:text="${vacation.roomType}"></td>-->
-        <!--                <td th:text="${vacation.destination}"></td>-->
-        <!--                <td>-->
-        <!--                    <a th:href="@{/vacation/{vacationId}/term(vacationId=${vacation.id})}">Terms</a>-->
-        <!--                </td>-->
-
-        <!--            </tr>-->
-        <!--            </tbody>-->
-        <!--        </table>-->
-
+        <h2>Vacations in Slovakia</h2>
         <div id="contain">
-            <div class="tbl" th:each="vacations : ${popular}">
-                <p class="pName" th:text="${vacations.name}"></p>
-                <p class="pDescr" th:text="${vacations.description}"></p>
-                <p class="pRoom" th:text="${vacations.roomType}"></p>
-                <p class="pDestin" th:text="${vacations.destination}"></p>
-                <a class="btn2" th:href="@{/vacation/{vacationId}/term(vacationId=${vacations.id})}">Terms</a>
+            <div class="tbl" th:each="svk : ${slovakia}">
+                <p class="pName" th:text="${svk.name}"></p>
+                <p class="pDescr" th:text="${svk.description}"></p>
+                <p class="pRoom" th:text="${svk.roomType}"></p>
+                <p class="pDestin" th:text="${svk.destination}"></p>
+                <a class="btn2" th:href="@{/vacation/{vacationId}/term(vacationId=${svk.id})}">Terms</a>
             </div>
         </div>
     </main>
@@ -309,17 +265,7 @@
     </aside>
 </div>
 <footer>
-    <div>
-        <p>Created by</p>
-        <p>Tomino and Janka</p>
 
-    </div>
-    <div>
-        <p>Created in 2023</p>
-    </div>
-    <div>
-        <p>SDA Academy</p>
-    </div>
 </footer>
 </body>
 </html>

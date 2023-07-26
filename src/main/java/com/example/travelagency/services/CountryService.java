@@ -1,6 +1,7 @@
 package com.example.travelagency.services;
 
 import com.example.travelagency.entities.CountryEntity;
+import com.example.travelagency.entities.VacationEntity;
 import com.example.travelagency.repositories.CountryRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,18 +18,17 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
-//    public CountryEntity getCountryWithId2() {
-//        var countryWithID2 = countryRepository
-//
-//    }
-
 
     public Optional<CountryEntity> getCountryByName(String name) {
         return countryRepository.findByName(name);
-
     }
 
     public Set<CountryEntity> getAllCountryNames() throws Exception {
-       return countryRepository.findByOrderByNameAsc();
+        return countryRepository.findByOrderByNameAsc();
     }
-}
+
+    public List<CountryEntity> getAll(){
+        return countryRepository.findAll();
+    }
+
+   }

@@ -16,7 +16,6 @@ import java.time.LocalDate;
 
 public class BookingEntity {
 
-
     @Id
     @Column(name="booking_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

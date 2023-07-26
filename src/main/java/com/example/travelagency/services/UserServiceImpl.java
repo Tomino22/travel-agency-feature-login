@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private String emailUser;
+
 
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -24,19 +24,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void register(RegisterDto registerDto) throws Exception {
         var user = new UserEntity();
-
         user.setFirstName(registerDto.getFirstName());
         user.setLastName(registerDto.getLastName());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-
-//        UserEntity.builder()
-//                .firstName(registerDto.getFirstName())
-//                .lastName(registerDto.getLastName())
-//                .email(registerDto.getEmail())
-//                .password(passwordEncoder.encode(registerDto.getPassword()))
-//                .build();
-
         userRepository.save(user);
     }
 
@@ -44,6 +35,9 @@ public class UserServiceImpl implements UserService {
     public UserEntity findByEmail(String email) throws Exception {
         return userRepository.findByEmail(email)
                 .orElseThrow( () -> new Exception("User not found"));
+
+    }
+    public void getAllBooksByUser(){
 
     }
 }

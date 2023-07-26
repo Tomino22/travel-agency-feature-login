@@ -39,10 +39,9 @@ public class VacationEntity {
     @JoinColumn (name="type_of_vacation_id", nullable = true)
     private TypeOfVacationEntity typeOfVacationEntity;
 
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name="term_id", nullable = true)
-    private TermEntity termEntity;
-// OneToMany?
+//    @ManyToOne (fetch = FetchType.EAGER)
+//    @JoinColumn (name="term_id", nullable = true)
+//    private TermEntity termEntity;
 
     public VacationEntity(long id, String name, String description, String roomType, String destination) {
         this.id = id;

@@ -57,7 +57,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/register", "/css/**", "/js/**")
                         .permitAll()
-                        .requestMatchers("/dashboard/**", "/vacation/**", "/country", "/creator", "/delete").authenticated()
+                        .requestMatchers("/dashboard/**", "/vacation/**", "/user/**", "/country", "/creator", "/delete").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                 ).formLogin(form -> form
                         .loginPage("/login")
@@ -80,14 +80,4 @@ public class WebSecurityConfig {
     }
 
 
-//    @Bean
-//    @Order(1)
-//    public SecurityFilterChain formLogin(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests(authorize -> authorize
-//                        .anyRequest().authenticated())
-//                .formLogin(Customizer.withDefaults())
-//                .httpBasic(Customizer.withDefaults());
-//        return http.build();
-//    }
 }

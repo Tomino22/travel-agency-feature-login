@@ -19,8 +19,4 @@ public class CountryEntity {
 
     @Column(name="country_name")
     private String name;
-
-
-
-
 }
