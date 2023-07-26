@@ -29,27 +29,6 @@ public class WebSecurityConfig {
 
 
 
-//    @Bean
-//    public SecurityFilterChain publicUrls(HttpSecurity http) throws Exception {
-//        http
-////                .securityMatcher("/vacation/**")
-//                .authorizeHttpRequests(authorize -> authorize
-//                        .anyRequest().permitAll()
-//                ).formLogin(form -> form
-//                        .loginPage("/login")
-//                        .loginProcessingUrl("/login")
-//                        .usernameParameter("email")
-//                        .passwordParameter("password")
-//                        .defaultSuccessUrl("/dashboard")
-//                        .failureUrl("/login?error=true")
-//                        .permitAll()
-//                ).logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll());
-//
-//
-//        return http.build();
-//    }
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http

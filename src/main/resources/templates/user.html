@@ -260,11 +260,7 @@
         <span th:text="${book.createDate}">A</span>
       </li>
     </span>
-<!--    <span>-->
-<!--      <li th:each="vacat : ${vacation}">-->
-<!--        <span th:text="${vacat.name}">A</span>-->
-<!--      </li>-->
-<!--    </span>-->
+
     <span>
       <li th:each="termEntity : ${termEntities}">
         <span th:text="${termEntity.price}">B</span> -
@@ -274,23 +270,7 @@
       </span>
     </ul>
 
-<!--    <h2>Your Vacations:</h2>-->
-<!--    <ul>-->
-<!--      <li th:each="vacation : ${vacation}">-->
-<!--        <span th:text="${vacation}"></span>-->
-<!--      </li>-->
-<!--    </ul>-->
 
-
-<!--    <div id="contain">-->
-<!--      <div class="tbl" th:each="vacations : ${popular}">-->
-<!--        <p class="pName" th:text="${vacations.name}"></p>-->
-<!--        <p class="pDescr" th:text="${vacations.description}"></p>-->
-<!--        <p class="pRoom" th:text="${vacations.roomType}"></p>-->
-<!--        <p class="pDestin" th:text="${vacations.destination}"></p>-->
-<!--        <a class="btn2" th:href="@{/vacation/{vacationId}/term(vacationId=${vacations.id})}">Terms</a>-->
-<!--      </div>-->
-<!--    </div>-->
   </main>
 
   <!-- Right Sidebar -->

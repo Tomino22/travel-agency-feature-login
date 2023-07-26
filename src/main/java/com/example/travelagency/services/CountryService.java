@@ -1,7 +1,6 @@
 package com.example.travelagency.services;
 
 import com.example.travelagency.entities.CountryEntity;
-import com.example.travelagency.entities.VacationEntity;
 import com.example.travelagency.repositories.CountryRepository;
 import org.springframework.stereotype.Service;
 

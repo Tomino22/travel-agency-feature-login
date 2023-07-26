@@ -37,7 +37,5 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow( () -> new Exception("User not found"));
 
     }
-    public void getAllBooksByUser(){
 
-    }
 }
